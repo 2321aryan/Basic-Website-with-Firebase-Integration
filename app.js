@@ -2,13 +2,6 @@
 
 // 1) Keep your firebase config exactly (no changes)
 const firebaseConfig = {
-  apiKey: "AIzaSyDvNYYoo_v7vN2Tn27KVoDFZIng3neqdIM",
-  authDomain: "simpleshop-db495.firebaseapp.com",
-  projectId: "simpleshop-db495",
-  storageBucket: "simpleshop-db495.firebasestorage.app",
-  messagingSenderId: "244413237194",
-  appId: "1:244413237194:web:c29e10261cf8f2efbef133",
-  measurementId: "G-G99228M0HZ"
 };
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
