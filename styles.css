@@ -1,0 +1,39 @@
+:root{
+  --bg:#f5f7fa; --card:#fff; --accent:#1f6feb; --muted:#6b7280; --danger:#e55151;
+}
+*{box-sizing:border-box;font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial}
+body{margin:0;background:var(--bg);color:#111}
+.topbar{display:flex;align-items:center;gap:16px;padding:12px 20px;background:#fff;box-shadow:0 1px 6px rgba(0,0,0,.06);position:sticky;top:0;z-index:40}
+.brand{display:flex;align-items:center;gap:10px}
+.logo-img{width:36px;height:36px}
+.brand-title{font-weight:700;font-size:18px}
+.search{flex:1}
+.search input{width:100%;padding:10px 12px;border-radius:6px;border:1px solid #e6e9ef}
+.header-actions{display:flex;align-items:center;gap:8px}
+.btn{padding:8px 12px;border-radius:6px;border:1px solid #ddd;background:#fff;cursor:pointer}
+.btn.primary{background:var(--accent);color:#fff;border-color:transparent}
+.btn.ghost{background:transparent;border:1px solid #ddd}
+.container{display:flex;gap:18px;padding:20px;max-width:1200px;margin:20px auto}
+.left-col{width:240px}
+.main-col{flex:1}
+.card{background:var(--card);padding:12px;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,.04)}
+.hero{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+.product{background:var(--card);padding:12px;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,.04);display:flex;flex-direction:column}
+.product img{height:150px;object-fit:cover;border-radius:6px}
+.product h4{margin:10px 0 6px 0;font-size:16px}
+.price{color:var(--accent);font-weight:700}
+.modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.35);display:flex;align-items:center;justify-content:center;z-index:60}
+.modal-card{background:#fff;padding:16px;border-radius:8px;min-width:300px;max-width:720px;position:relative}
+.close{position:absolute;right:10px;top:10px;border:none;background:transparent;font-size:18px;cursor:pointer}
+.tab{padding:8px;border-radius:6px;border:1px solid #eee;background:#fafafa;cursor:pointer}
+.tab.active{background:var(--accent);color:#fff;border-color:transparent}
+.form{display:flex;flex-direction:column;gap:8px}
+.form input{padding:8px;border-radius:6px;border:1px solid #e6e9ef}
+.panel{background:transparent}
+.user-avatar{width:28px;height:28px;border-radius:50%}
+.panel{box-shadow:none}
+.panel .admin-form input, .panel .admin-form textarea{width:100%;padding:8px;border:1px solid #e6e9ef;border-radius:6px;margin-bottom:8px}
+.panel .admin-form textarea{height:80px}
+.panel{box-shadow:none}
+@media (max-width:900px){.container{flex-direction:column;padding:12px}.left-col{width:100%}}

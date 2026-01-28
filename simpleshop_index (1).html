@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MyShop — Demo E-commerce</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg" alt="logo" class="logo-img" />
+      <div class="brand-title">MyShop</div>
+    </div>
+
+    <div class="search">
+      <input id="search-input" placeholder="Search products, brands and categories..." />
+    </div>
+
+    <div class="header-actions">
+      <button id="btn-orders" class="btn ghost">My Orders</button>
+      <button id="btn-cart" class="btn">Cart (<span id="cart-count">0</span>)</button>
+      <button id="btn-admin-toggle" class="btn ghost">Admin</button>
+      <span id="user-info" style="display:none"></span>
+      <button id="btn-login" class="btn primary">Login / Register</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <aside class="left-col">
+      <div class="card categories-card">
+        <h3>Categories</h3>
+        <ul id="categories">
+          <li class="cat active" data-cat="">All</li>
+        </ul>
+      </div>
+
+      <div class="card filters-card">
+        <h3>Filters</h3>
+        <label><input id="filter-instock" type="checkbox" /> In stock only</label>
+      </div>
+    </aside>
+
+    <section class="main-col">
+      <div class="hero card">
+        <div class="hero-left">
+          <h1>Shop the best products</h1>
+          <p>Demo store — signup, add to cart, checkout. Uses your Firebase project.</p>
+        </div>
+        <div class="hero-right">
+          <button id="btn-shop-now" class="btn primary">Shop Now</button>
+        </div>
+      </div>
+
+      <div id="product-list" class="grid"></div>
+    </section>
+  </main>
+
+  <!-- Product Modal -->
+  <div id="product-modal" class="modal-backdrop" style="display:none">
+    <div class="modal-card">
+      <button id="close-product" class="close">✕</button>
+      <div id="product-detail"></div>
+    </div>
+  </div>
+
+  <!-- Admin Panel -->
+  <div id="admin-panel" class="panel" style="display:none">
+    <h3>Admin — Add Product</h3>
+    <form id="admin-add-form" class="admin-form">
+      <input id="admin-title" placeholder="Title" required />
+      <input id="admin-category" placeholder="Category (e.g. Home)" />
+      <input id="admin-price" placeholder="Price" type="number" step="0.01" required />
+      <input id="admin-stock" placeholder="Stock" type="number" required />
+      <input id="admin-image" placeholder="Image URL" />
+      <textarea id="admin-desc" placeholder="Description (optional)"></textarea>
+      <div style="display:flex;gap:8px">
+        <button class="btn primary">Add Product</button>
+        <button id="admin-close" type="button" class="btn ghost">Close</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Orders Panel -->
+  <div id="orders-panel" class="panel" style="display:none">
+    <h3>My Orders</h3>
+    <div id="orders-list"></div>
+    <button id="orders-close" class="btn ghost">Close</button>
+  </div>
+
+  <!-- Auth Modal Template -->
+  <template id="auth-template">
+    <div class="modal-backdrop">
+      <div class="modal-card" id="auth-modal-card">
+        <button id="close-auth" class="close">✕</button>
+
+        <div class="tabs">
+          <button id="tab-login" class="tab active">Login</button>
+          <button id="tab-register" class="tab">Register</button>
+        </div>
+
+        <div id="login-panel" class="panel">
+          <form id="login-form" class="form">
+            <input id="login-email" placeholder="Email" type="email" required />
+            <input id="login-password" placeholder="Password" type="password" required />
+            <button class="btn primary">Login</button>
+          </form>
+          <div style="margin-top:12px">
+            <button id="google-signin" class="btn">Sign in with Google</button>
+          </div>
+        </div>
+
+        <div id="register-panel" class="panel" style="display:none">
+          <form id="register-form" class="form">
+            <input id="reg-name" placeholder="Full name" required />
+            <input id="reg-email" placeholder="Email" type="email" required />
+            <input id="reg-password" placeholder="Password" type="password" required />
+            <input id="reg-phone" placeholder="Phone (optional)" />
+            <input id="reg-address" placeholder="Address (optional)" />
+            <button class="btn primary">Register</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </template>
+
+  <!-- Firebase compat SDKs (must be before app.js) -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+
+  <!-- App script -->
+  <script src="app.js"></script>
+</body>
+</html>
